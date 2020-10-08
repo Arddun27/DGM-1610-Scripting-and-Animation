@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float hInput, speed = 10f;
-
+    public GameObject projectileprefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,11 @@ public class PlayerControl : MonoBehaviour
             transform.position = new Vector3(10, transform.position.y, transform.position.z);
         }
             
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            //Launch a Projectile from player
+            Instantiate(projectileprefab, transform.position, projectileprefab.transform.rotation);
+        }
         
 
     }
