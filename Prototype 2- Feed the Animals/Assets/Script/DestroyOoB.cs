@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyOoB : MonoBehaviour
 {
-    private float topBound = 30, lowerbound = -10;
+    private float topBound = 30, lowerbound = -15;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,8 @@ public class DestroyOoB : MonoBehaviour
 
         else if(transform.position.z < lowerbound)
         {
-        Destroy(gameObject);
+         Debug.Log("Git Gud Scrub");
+         Destroy(gameObject);
         }
     }
 }
