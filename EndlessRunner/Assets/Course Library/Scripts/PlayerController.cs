@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
     public float jumpForce, gravityMod;
-    public bool isGrounded = true;
+    public bool isGrounded = true, gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +28,15 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log(isGrounded);
-        Debug.Log(other);
+
+        if(other.gameObject.CompareTag("Ground"))
+        {
         isGrounded = true;
+        }
+        else if(other.gameObject.CompareTag("Obstacle"))
+        {
+        gameOver = true;
+        Debug.Log("Git Gud Scrub");
+        }
     }
 }
