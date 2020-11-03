@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class MoveLeft : MonoBehaviour
 {
-    private float speed = 30, leftBound = -15;
+    private float speed = 15, leftBound = -15;
     private PlayerController playerControllerScript;
     // Start is called before the first frame update
     void Start()
     {
-        playerControllerScript = GetComponent<PlayerController>().GetComponent<PlayerController>();;
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
