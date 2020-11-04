@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
     private Animator playerAnim;
+    private AudioSource playerAudio;
+    public ParticleSystem explosionParticle, dirtParticle;
+    public AudioClip jumpSound, crashSound;
     public float jumpForce = 700, gravityMod = 1.5f;
     public bool isGrounded = true, gameOver = false;
     // Start is called before the first frame update
@@ -13,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
         Physics.gravity *= gravityMod;
 
     }
@@ -25,6 +29,8 @@ public class PlayerController : MonoBehaviour
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
             playerAnim.SetTrigger("Jump_trig");
+            dirtParticle.Stop();
+            playerAudio.PlayOneShot(jumpSound, 1);
         }
         
     }
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
         isGrounded = true;
+        dirtParticle.Play();
         }
 
         else if(other.gameObject.CompareTag("Obstacle"))
@@ -43,6 +50,9 @@ public class PlayerController : MonoBehaviour
         gameOver = true;
         playerAnim.SetBool("Death_b", true);
         playerAnim.SetInteger("DeathType_int", 1);
+        explosionParticle.Play();
+        dirtParticle.Stop();
+        playerAudio.PlayOneShot(crashSound, 1);
         }
     }
 }
