@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 
-    private float speed = 10;
+    public float speed = 5;
     private Rigidbody playerRb;
     // Start is called before the first frame update
     void Start()
     {
-        MovePlayer();
 
         //Calling player rigid body so it can be used in this script 
         playerRb = GetComponent<Rigidbody>();
@@ -19,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-
+MovePlayer();
     }
 
     // Making the player move using horizontal and vertical inputs by the player
