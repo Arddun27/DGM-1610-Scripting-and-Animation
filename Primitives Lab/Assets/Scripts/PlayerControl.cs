@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-MovePlayer();
+    MovePlayer();
     }
 
     // Making the player move using horizontal and vertical inputs by the player
@@ -31,5 +31,26 @@ MovePlayer();
         playerRb.AddForce(Vector3.right * speed * hInput);
     }
 
-    //Everything will be inside 4 walls, didn't need to constrain
+    private void OnCollisionEnter(Collision collision)
+    {
+
+    if (collision.gameObject.CompareTag("Enemy"))
+    {
+     Debug.Log("Git Gud");
+    }
+
+    }
+
+    
+    private void OnTriggerEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+        }
+
+    }
+    
+   
+ //Everything will be inside 4 walls, didn't need to constrain   
 }

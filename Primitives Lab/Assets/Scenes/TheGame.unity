@@ -384,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 16.5, z: 3.2}
+  m_LocalPosition: {x: 0, y: 16.5, z: 1.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -756,7 +756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533712189}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2.74, z: -8.76}
+  m_LocalPosition: {x: 0, y: 2.74, z: -8.38}
   m_LocalScale: {x: 1, y: 5.372124, z: 26.359322}
   m_Children: []
   m_Father: {fileID: 2017097191}
@@ -805,6 +805,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f292c4221484b2b45978ede188c510b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 3331659240293267104, guid: 6edc8552e75f5504bb7a605968b904d4,
+    type: 3}
+  powerupPrefab: {fileID: 7356103194195041723, guid: 35e598172da1ff54b95cfc575c57fab7,
+    type: 3}
+  swordPrefab: {fileID: 4091113764167293341, guid: e15c7cf670aa0834781835600d3430b6,
+    type: 3}
+  bossPrefab: {fileID: 6177323825718949287, guid: 2fdcf3c8853d2c745a581ef00a4e0fa7,
+    type: 3}
+  enemyCount: 0
+  waveNumber: 1
 --- !u!1 &1941198643
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +831,7 @@ GameObject:
   - component: {fileID: 1941198649}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -928,6 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c103d14024aef4d45a59a3724ad29f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &2017097190
 GameObject:
   m_ObjectHideFlags: 0

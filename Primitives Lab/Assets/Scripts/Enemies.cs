@@ -21,4 +21,5 @@ public class Enemies : MonoBehaviour
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRB.AddForce(lookDirection * speed);
     }
+    //There isn't an off screen, just walls
 }
