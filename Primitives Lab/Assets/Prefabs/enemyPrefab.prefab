@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  ded: {fileID: 19821056, guid: 9028bfcfba470eb4e95f099bd0b6abc7, type: 3}
 --- !u!54 &3331659240293267114
 Rigidbody:
   m_ObjectHideFlags: 0

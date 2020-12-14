@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     private int health = 3;
     private AudioSource playerAudio;
     public TextMeshProUGUI healthText, gameOverText;
-    public Button restartButton;
+    public ParticleSystem ded;
     
     // Start is called before the first frame update
     void Start()
@@ -58,11 +58,13 @@ public class PlayerControl : MonoBehaviour
     if (collision.gameObject.CompareTag("Enemy"))
     {
      health--;
+     ded.Play();
     }
 
      if (collision.gameObject.CompareTag("Boss"))
     {
      health--;
+     ded.Play();
     }
 
     }

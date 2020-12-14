@@ -7,6 +7,7 @@ public class Enemies : MonoBehaviour
     public float speed = 0.25f;
     private Rigidbody enemyRB, bossRB;
     private GameObject player;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class Enemies : MonoBehaviour
 
         private void OnCollisionEnter(Collision collision)
         {
+            
             Destroy(gameObject);
         }
     //There isn't an off screen, just walls
