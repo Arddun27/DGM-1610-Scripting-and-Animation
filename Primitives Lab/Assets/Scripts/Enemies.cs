@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public float speed = 3;
-    private Rigidbody enemyRB;
+    public float speed = 0.25f;
+    private Rigidbody enemyRB, bossRB;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -20,6 +20,17 @@ public class Enemies : MonoBehaviour
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRB.AddForce(lookDirection * speed);
+        if (speed <= 1)
+        {
+            speed = 0.25f;
+        }
+
+       
     }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Destroy(gameObject);
+        }
     //There isn't an off screen, just walls
 }

@@ -4,41 +4,46 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 { 
-    public GameObject enemyPrefab, powerupPrefab, swordPrefab, bossPrefab;
+    public GameObject enemyPrefab, bossPrefab;
     private float spawnRange = 9;
     public int enemyCount, waveNumber = 1;
+    public bool isGameActive;
 
     // Start is called before the first frame update
     void Start()
     {
+        isGameActive = true;
        SpawnEnemyWave(waveNumber);
-       Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         enemyCount = FindObjectsOfType<Enemies>().Length;
 
         if(enemyCount == 0)
         {
-            waveNumber++;
+            waveNumber++;   
             SpawnEnemyWave(waveNumber);
-            Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
         }
     }
 
     void SpawnEnemyWave(int enemiesToSpawn)
     {
+                
         for(int i = 0; i < enemiesToSpawn; i++)
         {
         Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
 
-        if (enemiesToSpawn % 5 == 0)
+        if (enemiesToSpawn % 5 == 1)
         {
         Instantiate(bossPrefab, GenerateSpawnPosition(), bossPrefab.transform.rotation);
         }
+        
+        
         
     }
 
@@ -48,7 +53,7 @@ public class SpawnManager : MonoBehaviour
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = Random.Range(-spawnRange + 2, spawnRange);
         
-        Vector3 randomPos =  new Vector3(spawnPosX, 0.8f, spawnPosZ);
+        Vector3 randomPos =  new Vector3(spawnPosX, 1, spawnPosZ);
 
         return randomPos;
     }
